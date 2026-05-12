@@ -1,4 +1,4 @@
-# 📦 Enterprise PCAP Lab Generator
+# Enterprise PCAP Lab Generator
 ## Overview
 The Enterprise PCAP Lab Generator is a single-command tool that generates realistic multi-subnet network traffic datasets for:
 
@@ -14,8 +14,8 @@ It automatically builds:
 * Multi-perspective PCAPs (inside + edge/NAT views)
 
 
-# 🚀 Key Features
-## ✅ One-Command Lab Generation
+# Key Features
+## One-Command Lab Generation
 Generate a full enterprise environment with:
 
 ```
@@ -24,7 +24,7 @@ python pcap_gen.py --preset enterpriseShow more lines
 
 No config required.
 
-## ✅ Multi-PCAP Output (Realistic Visibility)
+## Multi-PCAP Output (Realistic Visibility)
 Each subnet gets its own PCAP:
 ```
 .
@@ -38,58 +38,45 @@ Each subnet gets its own PCAP:
         └── edge.pcap
 ```
 
-## Netork Visibility Model
+## Network Visibility Model
+| View | Description |
+| Inside Subnets | Pre-NAT traffic |
+| Edge PCAP | Post-NAT external traffic |
+| Return Traffic | Simulated inbound responses |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ViewDescriptionInside SubnetsPre-NAT traffic (attribution preserved)Edge PCAPPost-NAT external trafficReturn TrafficSimulated inbound responses
-
-✅ Automatic Network Design
+## Automatic Network Design
 The tool automatically:
 
-Allocates CIDRs per tier
-Prevents subnet overlap
-Sizes subnets based on host counts
-Assigns gateway IPs correctly
+*Allocates CIDRs per tier
+*Prevents subnet overlap
+*Sizes subnets based on host counts
+*Assigns gateway IPs correctly
 
 
-✅ NAT + Edge Modeling
+## NAT + Edge Modeling
 Simulates:
 
 Internet egress NAT
-Public IP translation
-Return traffic from internet
-De-NAT delivery to internal hosts
+*Public IP translation
+*Return traffic from internet
+*De-NAT delivery to internal hosts
 
 
-✅ Deterministic Output
+## Deterministic Output
 All runs are reproducible:
-Shellpython pcap_gen.py --seed 42Show more lines
+```
+python pcap_gen.py --seed 42
+```
 Same inputs → same outputs
 
-✅ Config Export (Optional)
+## Config Export (Optional)
+```
 Shellpython pcap_gen.py --preset enterprise --export-configShow more lines
+```
 Outputs:
-config.json
-config.summary.txt
+*config.json
+*config.summary.txt
 
 
 🧠 Architecture
