@@ -17,7 +17,7 @@ It automatically builds:
 # 🚀 Key Features
 ## ✅ One-Command Lab Generation
 Generate a full enterprise environment with:
-``
+``bash
 python pcap_gen.py --preset enterpriseShow more lines
 ``
 No config required.
