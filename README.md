@@ -27,23 +27,18 @@ No config required.
 ## ✅ Multi-PCAP Output (Realistic Visibility)
 Each subnet gets its own PCAP:
 ``
-output/
-
-  pcaps/
-  
-    dmz.pcap
-    
-    servers.pcap
-    
-    workstations.pcap
-    
-    vpn.pcap
-    
-    iot_byod.pcap
-    
-    edge.pcap
+.
+├── output/
+    └── pcaps/
+        ├── dmz.pcap
+        ├── servers.pcap
+        ├── workstations.pcap
+        ├── vpn.pcap
+        ├── iot_byod.pcap
+        └── edge.pcap
 ``
-Visibility Model
+
+## Netork Visibility Model
 
 
 
