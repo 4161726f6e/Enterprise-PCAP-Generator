@@ -49,19 +49,19 @@ Each subnet gets its own PCAP:
 ## Automatic Network Design
 The tool automatically:
 
-*Allocates CIDRs per tier
-*Prevents subnet overlap
-*Sizes subnets based on host counts
-*Assigns gateway IPs correctly
+* Allocates CIDRs per tier
+* Prevents subnet overlap
+* Sizes subnets based on host counts
+* Assigns gateway IPs correctly
 
 
 ## NAT + Edge Modeling
 Simulates:
 
 Internet egress NAT
-*Public IP translation
-*Return traffic from internet
-*De-NAT delivery to internal hosts
+* Public IP translation
+* Return traffic from internet
+* De-NAT delivery to internal hosts
 
 
 ## Deterministic Output
@@ -76,8 +76,8 @@ Same inputs → same outputs
 Shellpython pcap_gen.py --preset enterprise --export-configShow more lines
 ```
 Outputs:
-*config.json
-*config.summary.txt
+* config.json
+* config.summary.txt
 
 
 🧠 Architecture
