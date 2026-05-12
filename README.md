@@ -40,6 +40,7 @@ Each subnet gets its own PCAP:
 
 ## Network Visibility Model
 | View | Description |
+| -------------- | -------------- |
 | Inside Subnets | Pre-NAT traffic |
 | Edge PCAP | Post-NAT external traffic |
 | Return Traffic | Simulated inbound responses |
