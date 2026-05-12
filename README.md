@@ -28,12 +28,19 @@ No config required.
 Each subnet gets its own PCAP:
 ``
 output/
+
   pcaps/
+  
     dmz.pcap
+    
     servers.pcap
+    
     workstations.pcap
+    
     vpn.pcap
+    
     iot_byod.pcap
+    
     edge.pcap
 ``
 Visibility Model
