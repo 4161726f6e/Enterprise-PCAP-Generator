@@ -14,16 +14,17 @@ It automatically builds:
 * Multi-perspective PCAPs (inside + edge/NAT views)
 
 
-##🚀 Key Features
-#✅ One-Command Lab Generation
+# 🚀 Key Features
+## ✅ One-Command Lab Generation
 Generate a full enterprise environment with:
 ``
 python pcap_gen.py --preset enterpriseShow more lines
 ``
 No config required.
 
-✅ Multi-PCAP Output (Realistic Visibility)
+## ✅ Multi-PCAP Output (Realistic Visibility)
 Each subnet gets its own PCAP:
+``
 output/
   pcaps/
     dmz.pcap
@@ -32,7 +33,7 @@ output/
     vpn.pcap
     iot_byod.pcap
     edge.pcap
-
+``
 Visibility Model
 
 
