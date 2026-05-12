@@ -87,9 +87,8 @@ Outputs:
 ## Architecture
 ### Network Segmentation
 
-| View | Description |
-| -------------- | -------------- | -------------- |
 | Tier | CIDR Range | Purpose |
+| -------------- | -------------- | -------------- |
 | DMZ | 10.10.0.0/16 | Internet-facing systems |
 | Servers | 10.20.0.0/16 | Backend systems |
 | Workstations | 10.30.0.0/16 | User endpoints |
@@ -179,10 +178,10 @@ tcp.port == 443
 ```
 
 
-✅ Summary
-This tool provides:
-✅ Automated enterprise network simulation
-✅ Multi-layer PCAP visibility
-✅ Realistic traffic generation
-✅ Reproducible lab environments
-✅ Zero manual configuration required
+## Summary
+### This tool provides:
+* Automated enterprise network simulation
+* Multi-layer PCAP visibility
+* Realistic traffic generation
+* Reproducible lab environments
+* Zero manual configuration required
