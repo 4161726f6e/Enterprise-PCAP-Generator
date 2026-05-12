@@ -13,13 +13,17 @@ It automatically builds:
 * Synthetic traffic across multiple tiers
 * Multi-perspective PCAPs (inside + edge/NAT views)
 
+## Requirements
+
+* Python 3.9+
+* Scapy
 
 # Key Features
 ## One-Command Lab Generation
 Generate a full enterprise environment with:
 
 ```
-python pcap_gen.py --preset enterpriseShow more lines
+python pcap_gen.py --preset enterprise
 ```
 
 No config required.
@@ -80,177 +84,100 @@ Outputs:
 * config.summary.txt
 
 
-🧠 Architecture
-Network Segmentation
+## Architecture
+### Network Segmentation
 
+| View | Description |
+| -------------- | -------------- | -------------- |
+| Tier | CIDR Range | Purpose |
+| DMZ | 10.10.0.0/16 | Internet-facing systems |
+| Servers | 10.20.0.0/16 | Backend systems |
+| Workstations | 10.30.0.0/16 | User endpoints |
+| VPN | 10.40.0.0/16 | Remote users |
+| IoT / BYOD | 10.50.0.0/16 | Noisy devices |
+| Edge | 203.0.113.0/24 | NAT boundary |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-TierCIDR RangePurposeDMZ10.10.0.0/16Internet-facing servicesServers10.20.0.0/16Backend systemsWorkstations10.30.0.0/16User endpointsVPN10.40.0.0/16Remote usersIoT / BYOD10.50.0.0/16Noisy devicesEdge203.0.113.0/24NAT boundary
-
-Traffic Types Generated
+### Traffic Types Generated
 Internal Traffic
+* Workstations → Servers (SMB-like)
+* VPN → DMZ (admin / RDP-like)
 
-Workstations → Servers (SMB-like)
-VPN → DMZ (admin / RDP-like)
+### Internet Traffic
+TLS-like sessions
+* ClientHello (SNI included)
+* Application data
+* Bidirectional communication
 
-Internet Traffic
-
-TLS-like sessions with:
-
-ClientHello (SNI included)
-Application data
-Bidirectional communication
-
-
-
-IoT Traffic
-
-DNS-like UDP bursts
+### IoT Traffic
+* DNS-like UDP bursts
 
 
-📁 Output Artifacts
-PCAP Files
+## Output Artifacts
+### PCAP Files
 Each PCAP represents traffic from a specific network perspective.
 
-config.json (optional)
-Machine-readable configuration:
+### config.json (optional)
+Machine-readable configuration including:
+* Subnets
+* Gateways
+* NAT settings
+* Host counts
 
-Subnets
-Gateways
-NAT settings
-Host counts
-
-
-config.summary.txt (optional)
+### config.summary.txt (optional)
 Human-readable summary:
+```
 workstations 10.30.0.0/22 capacity=1021 hosts=800 util=78.3% gw=10.30.0.1
 servers      10.20.0.0/25 capacity=125 hosts=118 util=94.4% gw=10.20.0.1
+```
 
-Useful for:
-
-Lab validation
-Documentation
-Debugging
+Useful for validation and debugging.
 
 
-⚙️ Usage
-Default (medium preset)
-Shellpython pcap_gen.pyShow more lines
+## Usage
+### Default (medium preset)
+```
+python pcap_gen.py
+```
 
-Enterprise-scale lab
-Shellpython pcap_gen.py --preset enterpriseShow more lines
+### Enterprise-scale lab
+```
+python pcap_gen.py --preset enterprise
+```
 
-Custom output directory
-Shellpython pcap_gen.py --output-dir lab1Show more lines
+### Custom output directory
+```
+python pcap_gen.py --output-dir folder
+```
 
-Export config + summary
-Shellpython pcap_gen.py --preset enterprise --export-configShow more lines
+### Export config + summary
+```
+python pcap_gen.py --preset enterprise --export-config
+```
 
-Override host counts
-Shellpython pcap_gen.py \  --preset enterprise \  --workstations 2000 \  --servers 300Show more lines
+333 Override host counts
+```
+python pcap_gen.py \
+   --preset enterprise \
+   --workstations 2000 \
+   --servers 300
+```
 
-Use existing config
-Shellpython pcap_gen.py --config config.jsonShow more lines
+### Use existing config
+```
+python pcap_gen.py --config config.json
+```
 
-🔍 Example Analysis (Wireshark)
-Find internet traffic (edge view)
+## Example Analysis (Wireshark)
+### Find internet traffic (edge view)
+```
 ip.addr == 203.0.113.1 && tcp.port == 443
+```
 
-
-Find TLS handshakes (inside)
+### Find TLS handshakes (inside)
+```
 tcp.port == 443
+```
 
-
-Identify internal lateral movement
-tcp.port == 445
-
-
-🧪 Validation Checklist
-After running:
-✅ PCAP files are non-empty
-✅ Edge PCAP contains external IPs
-✅ Workstation PCAP contains TLS traffic
-✅ Summary file reflects realistic utilization
-
-🏗 Design Principles
-Automatic First
-
-No required inputs
-Sensible defaults
-
-
-Realistic by Design
-
-Multi-tier segmentation
-NAT + edge modeling
-Bidirectional flows
-
-
-Reproducible
-
-Seed-based deterministic output
-
-
-Analyst-Centric
-
-Multiple visibility perspectives
-Real-world traffic patterns
-
-
-🔮 Roadmap
-Planned enhancements:
-
-Scenario injection (--scenario ransomware)
-Difficulty tuning (--difficulty easy|hard)
-Ground truth export (attacker IPs, compromised hosts)
-Multi-site topology generation
-Zeek log + endpoint log correlation
-
-
-📦 Requirements
-
-Python 3.9+
-Scapy
-
-Install:
-Shellpip install scapyShow more lines
 
 ✅ Summary
 This tool provides:
