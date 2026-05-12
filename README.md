@@ -18,15 +18,15 @@ It automatically builds:
 ## ✅ One-Command Lab Generation
 Generate a full enterprise environment with:
 
-``bash
+```
 python pcap_gen.py --preset enterpriseShow more lines
-``
+```
 
 No config required.
 
 ## ✅ Multi-PCAP Output (Realistic Visibility)
 Each subnet gets its own PCAP:
-``
+```
 .
 ├── output/
     └── pcaps/
@@ -36,7 +36,7 @@ Each subnet gets its own PCAP:
         ├── vpn.pcap
         ├── iot_byod.pcap
         └── edge.pcap
-``
+```
 
 ## Netork Visibility Model
 
