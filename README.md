@@ -1,5 +1,5 @@
-#📦 Enterprise PCAP Lab Generator
-##Overview
+##📦 Enterprise PCAP Lab Generator
+#Overview
 The Enterprise PCAP Lab Generator is a single-command tool that generates realistic multi-subnet network traffic datasets for:
 
 * SOC analyst training
@@ -14,8 +14,8 @@ It automatically builds:
 * Multi-perspective PCAPs (inside + edge/NAT views)
 
 
-#🚀 Key Features
-##✅ One-Command Lab Generation
+##🚀 Key Features
+#✅ One-Command Lab Generation
 Generate a full enterprise environment with:
 ``
 python pcap_gen.py --preset enterpriseShow more lines
